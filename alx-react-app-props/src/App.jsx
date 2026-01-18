@@ -1,9 +1,8 @@
-import ProfilePage from "./components/ProfilePage.jsx";
-import UserContext from "./UserContext.js";
+import UserContext from "./UserContext";
+import ProfilePage from "./ProfilePage";
 
 function App() {
-  const userData = { name: "Jane Doe", 
-                     email: "jane.doe@example.com" };
+  const userData = { name: "Jane Doe", email: "jane.doe@example.com" };
 
   return (
     <UserContext.Provider value={userData}>
@@ -13,3 +12,4 @@ function App() {
 }
 
 export default App;
+
