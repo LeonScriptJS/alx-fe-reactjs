@@ -4,7 +4,7 @@ import RecipeList from './components/RecipeList';
 import AddRecipeForm from './components/AddRecipeForm';
 import RecipeDetails from './components/RecipeDetails';
 import FavoritesList from './components/FavoritesList';
-import RecommendationsList from './components/RecommendationsList';
+import RecommendationList from './components/RecommendationList';
 
 function App() {
   return (
@@ -12,7 +12,7 @@ function App() {
       <AddRecipeForm />
       <RecipeList />
       <FavoritesList />
-      <RecommendationsList />
+      <RecommendationList />
 
       <Routes>
         <Route path="/recipe/:id" element={<RecipeDetails />} />

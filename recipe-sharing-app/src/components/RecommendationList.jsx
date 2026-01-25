@@ -1,7 +1,7 @@
 import React from 'react';
 import { useRecipeStore } from './recipeStore';
 
-const RecommendationsList = () => {
+const RecommendationList = () => {
   const recommendations = useRecipeStore(
     (state) => state.recommendations
   );
@@ -26,4 +26,4 @@ const RecommendationsList = () => {
   );
 };
 
-export default RecommendationsList;
+export default RecommendationList;
