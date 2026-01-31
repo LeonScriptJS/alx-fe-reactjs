@@ -32,3 +32,14 @@ const useRecipeStore = create((set) => ({
 }));
 
 export { useRecipeStore };
+
+
+
+
+{classrooms.map((classroom, id) =>
+<div key={classroom.id}>
+  <h3>{classroom.name}</h3>
+  <p> Students Name: {classroom.students.name}</p>
+</div>
+)};
+
