@@ -4,7 +4,7 @@ import { fetchUserData } from "../services/githubService";
 function Search() {
   const [username, setUsername] = useState("");
   const [location, setLocation] = useState("");
-  const [repos, setRepos] = useState("");
+  const [minRepos, setMinRepos] = useState("");
   const [users, setUsers] = useState([]);
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(false);
@@ -20,7 +20,7 @@ function Search() {
       const data = await fetchUserData({
         username,
         location,
-        repos,
+        minRepos,
         page: 1,
       });
       setUsers(data);
@@ -39,7 +39,7 @@ function Search() {
       const data = await fetchUserData({
         username,
         location,
-        repos,
+        minRepos,
         page: nextPage,
       });
       setUsers((prev) => [...prev, ...data]);
@@ -70,13 +70,14 @@ function Search() {
           className="border p-2 rounded"
         />
 
-        <input
-          type="number"
-          placeholder="Minimum repositories"
-          value={repos}
-          onChange={(e) => setRepos(e.target.value)}
-          className="border p-2 rounded"
-        />
+       <input
+  type="number"
+  placeholder="Minimum repositories"
+  value={minRepos}
+  onChange={(e) => setMinRepos(e.target.value)}
+  className="border p-2 rounded"
+/>
+
 
         <button className="bg-black text-white p-2 rounded">
           Search
