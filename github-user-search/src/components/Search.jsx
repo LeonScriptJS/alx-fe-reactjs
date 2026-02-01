@@ -70,18 +70,15 @@ function Search() {
           className="border p-2 rounded"
         />
 
-       <input
-  type="number"
-  placeholder="Minimum repositories"
-  value={minRepos}
-  onChange={(e) => setMinRepos(e.target.value)}
-  className="border p-2 rounded"
-/>
+        <input
+          type="number"
+          placeholder="Minimum repositories"
+          value={minRepos}
+          onChange={(e) => setMinRepos(e.target.value)}
+          className="border p-2 rounded"
+        />
 
-
-        <button className="bg-black text-white p-2 rounded">
-          Search
-        </button>
+        <button className="bg-black text-white p-2 rounded">Search</button>
       </form>
 
       {loading && <p className="mt-4">Loading...</p>}
