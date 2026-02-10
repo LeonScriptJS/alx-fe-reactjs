@@ -20,8 +20,8 @@ const HomePage = () => {
             className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-x1 transition"
           >
             <img
-              src="{recipe.image}"
-              alt="{recipe.title}"
+              src= {recipe.image}
+              alt= {recipe.title}
               className="w-full h-48 object-cover"
             />
             <div className="p-4">
