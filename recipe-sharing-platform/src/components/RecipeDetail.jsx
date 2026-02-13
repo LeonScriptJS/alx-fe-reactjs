@@ -1,20 +1,24 @@
 import { useParams, Link } from "react-router-dom";
+import { useEffect, useState } from "react";
 import recipes from "../data.json";
 
 const RecipeDetail = () => {
   const { id } = useParams();
+  const [recipe, setRecipe] = useState(null);
 
-  const recipe = recipes.find(
-    (r) => r.id === Number(id)
-  );
+  useEffect(() => {
+    const foundRecipe = recipes.find(
+      (r) => r.id === Number(id)
+    );
+    setRecipe(foundRecipe);
+  }, [id]);
 
   if (!recipe) {
-    return <p className="p-10">Recipe not found.</p>;
+    return <p className="p-6">Loading recipe...</p>;
   }
 
   return (
     <div className="max-w-4xl mx-auto p-6">
-      
       <Link to="/" className="text-blue-600 hover:underline">
         ← Back to Home
       </Link>
