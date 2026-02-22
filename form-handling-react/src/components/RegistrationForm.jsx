@@ -1,34 +1,39 @@
 import React from "react";
 import { useState } from "react";
 
-const RegistrationForm = () => {
+function RegistrationForm() {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
+  const [errors, setErrors] = useState({});
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    //Basic Validation
-    if (!username || !email || !password) {
-      setError("All fields are required");
-      return;
+    let newErrors = {};
+
+    if (!username) {
+      newErrors.username = "Username is required";
     }
 
-    setError("");
-    console.log("User Registered:", {
-      username,
-      email,
-      password,
-    });
+    if (!email) {
+      newErrors.email = "Email is required";
+    }
+
+    if (!password) {
+      newErrors.password = "Password is required";
+    }
+
+    setErrors(newErrors);
+
+    if (Object.keys(newErrors).length === 0) {
+      console.log("User Registered:", { username, email, password });
+    }
   };
 
   return (
     <form onSubmit={handleSubmit}>
       <h2>User Registration</h2>
-
-      {error && <p style={{ color: "red" }}>{error}</p>}
 
       <div>
         <label>Username:</label>
@@ -37,6 +42,7 @@ const RegistrationForm = () => {
           value={username}
           onChange={(e) => setUsername(e.target.value)}
         />
+        {errors.username && <p>{errors.username}</p>}
       </div>
 
       <div>
@@ -46,6 +52,7 @@ const RegistrationForm = () => {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
+        {errors.email && <p>{errors.email}</p>}
       </div>
 
       <div>
@@ -55,11 +62,12 @@ const RegistrationForm = () => {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
+        {errors.password && <p>{errors.password}</p>}
       </div>
 
       <button type="submit">Register</button>
     </form>
   );
-};
+}
 
 export default RegistrationForm;
