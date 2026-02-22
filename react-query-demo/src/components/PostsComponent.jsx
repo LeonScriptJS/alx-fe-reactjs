@@ -1,5 +1,5 @@
 import React from 'react';
-import { useQuery } from "react-query";
+import { useQuery } from '@tanstack/react-query';
 
 function PostsComponent() {
   const fetchPosts = async () => {
@@ -19,9 +19,12 @@ function PostsComponent() {
     isLoading,
     isError,
     error,
-    refetch
+    refetch,
   } = useQuery("posts", fetchPosts, {
-    staleTime: 1000 * 60 * 5, // cache for 5 minutes
+    staleTime: 1000 * 60 * 5,          // 5 minutes
+    cacheTime: 1000 * 60 * 10,        // 10 minutes
+    refetchOnWindowFocus: false,      // do not auto refetch on tab focus
+    keepPreviousData: true,           // keep old data while fetching new
   });
 
   if (isLoading) {
