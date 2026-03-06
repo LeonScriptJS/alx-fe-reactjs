@@ -1,3 +1,4 @@
+import React from "react";
 import { useParams } from "react-router-dom";
 import { useRecipeStore } from "./recipeStore";
 import EditRecipeForm from "./EditRecipeForm";
@@ -16,7 +17,7 @@ const RecipeDetails = () => {
 
   return (
     <div>
-      <h1>{recipe.title}</h1>
+      <h2>{recipe.title}</h2>
       <p>{recipe.description}</p>
 
       <EditRecipeForm recipe={recipe} />
