@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useParams, Link } from "react-router-dom";
 
 const AddRecipeForm = () => {
   const [title, setTitle] = useState("");
@@ -124,6 +125,9 @@ const AddRecipeForm = () => {
           Submit Recipe
         </button>
       </form>
+       <Link to="/" className="text-blue-600 hover:underline">
+        ← Back to Home
+      </Link>
     </div>
   );
 };

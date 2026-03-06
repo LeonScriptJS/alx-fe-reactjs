@@ -19,7 +19,7 @@ function formikForm() {
   });
 
   const onSubmit = (values) => {
-    console.log("Formik Submitted:", values);q
+    console.log("Formik Submitted:", values);
   };
 
   return (

@@ -2,12 +2,23 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import recipes from "../data.json/";
+import { Link } from "react-router-dom";
 
 const HomePage = () => {
   const [recipeList, setRecipeList] = useState([]);
   useEffect(() => {
     setRecipeList(recipes);
   }, []);
+
+
+  {recipes.map((recipe) => (
+  <div key={recipe.id}>
+    <Link to={`/recipe/${recipe.id}`}>
+      {recipe.title}
+    </Link>
+  </div>
+))}
+
 
   return (
     <div className="max-w-7xl mx-auto p-6">
@@ -39,6 +50,14 @@ const HomePage = () => {
           </div>
         ))}
       </div>
+      <button
+        type="submit"
+        className="w-80  bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition"
+      >
+        <Link to="/add" className="hover:underline">
+          ← Add Recipe
+        </Link>
+      </button>
     </div>
   );
 };
