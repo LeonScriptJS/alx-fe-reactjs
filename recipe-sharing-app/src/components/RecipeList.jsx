@@ -1,6 +1,6 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { useRecipeStore } from './recipeStore';
+import React from "react";
+import { Link } from "react-router-dom";
+import { useRecipeStore } from "../recipeStore";
 
 const RecipeList = () => {
   const recipes = useRecipeStore((state) => state.recipes);
@@ -10,8 +10,14 @@ const RecipeList = () => {
 
   const isFavorite = (id) => favorites.includes(id);
 
+  if (recipes.length === 0) {
+    return <p>No recipes yet. Add one!</p>;
+  }
+
   return (
     <div>
+      <h2>Recipe List</h2>
+
       {recipes.map((recipe) => (
         <div key={recipe.id}>
           <h3>
@@ -19,6 +25,7 @@ const RecipeList = () => {
               {recipe.title}
             </Link>
           </h3>
+
           <p>{recipe.description}</p>
 
           {isFavorite(recipe.id) ? (
